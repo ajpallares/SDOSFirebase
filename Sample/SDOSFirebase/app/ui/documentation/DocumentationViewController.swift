@@ -8,7 +8,7 @@ import UIKit
 import WebKit
 import SDOSFirebase
 
-class DocumentationViewController: UIViewController {
+class DocumentationViewController: VIPERBaseViewController {
     
     static let GO_BACK_BUTTON_TITLE = "<"
     static let GO_FORWARD_BUTTON_TITLE = ">"
@@ -44,6 +44,10 @@ class DocumentationViewController: UIViewController {
         return barBtnReload
     }()
 
+    override func firebaseScreenName() -> String? {
+        return "correcto"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,7 +57,6 @@ class DocumentationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setFirebaseScreenName()
     }
     
     func addSubviewWithAlignedBorders(subView: UIView, to parent: UIView) {

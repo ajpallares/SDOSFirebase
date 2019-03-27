@@ -114,8 +114,15 @@ extension UIView {
     ///
     /// - Parameters:
     ///   - name: Nombre de la pantalla. Si es nulo lo buscará en el fichero plist a partir de la clase
-    public func setFirebaseScreenName(name: String? = nil) {
+    @objc open func setFirebaseScreenName(name: String? = nil) {
         SDOSFirebase.setScreenName(name, forClass: type(of: self))
+    }
+    
+    /// Nombre de la pantalla para marcar en Firebase. Si devuelve nil seteara el nombre en el .plist si existe o el nombre del controlador si no existe.
+    ///
+    /// - Returns: Nombre para marcar en Firebase
+    @objc open func firebaseScreenName() -> String? {
+        return nil
     }
 }
 
@@ -124,7 +131,14 @@ extension UIViewController {
     ///
     /// - Parameters:
     ///   - name: Nombre de la pantalla. Si es nulo lo buscará en el fichero plist a partir de la clase
-    public func setFirebaseScreenName(name: String? = nil) {
+    @objc open func setFirebaseScreenName(name: String? = nil) {
         SDOSFirebase.setScreenName(name, forClass: type(of: self))
+    }
+    
+    /// Nombre de la pantalla para marcar en Firebase. Si devuelve nil seteara el nombre en el .plist si existe o el nombre del controlador si no existe
+    ///
+    /// - Returns: Nombre para marcar en Firebase
+    @objc open func firebaseScreenName() -> String? {
+        return nil
     }
 }
