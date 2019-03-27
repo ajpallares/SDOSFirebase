@@ -20,7 +20,10 @@ import SDOSVIPER
 }
 
 @objc class VIPERBaseViewController : VIPERGenericViewController {
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setFirebaseScreenName(name: firebaseScreenName())
+    }
 }
 
 @objc class VIPERBaseWireframe: VIPERGenericObject {
