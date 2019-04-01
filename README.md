@@ -61,12 +61,12 @@ La librería está planteada para usarse conjuntamente con los entornos configur
 La librería requiere que se lance la configuración inicial durante la carga de la aplicación (preferiblemente en el método *application(application:didFinishLaunchingWithOptions:)*). Está configuración se realiza con la siguiente implementación:
 
 1. Cargar el fichero de configuración de Firebase con la siguiente llamada
-    ```java
+    ```swift
     //If environment is "Debug" load config file from GoogleService-Info-Debug.plist
     var options = SDOSFirebase.options(environment: SDOSEnvironment.environmentKey)
     ```
 2. Aplicar la configuración
-    ```java
+    ```swift
     SDOSFirebase.configure(options: options)
     ```
 La configuración de Firebase se puede cargar de otra forma o recibir modificaciones una vez cargada. Está implementación es válida si se configuran los ficheros por entornos.
@@ -74,12 +74,12 @@ La configuración de Firebase se puede cargar de otra forma o recibir modificaci
 #### Uso
 
 Para realizar el marcaje de las pantallas hay que implementar el siguiente código durante la presentación de la vista:
-```java
+```swift
 setFirebaseScreenName(name: firebaseScreenName())
 ```
 
 Un ejemplo sería llamar al método en el viewDidAppear:
-```java
+```swift
 override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     setFirebaseScreenName(name: firebaseScreenName())
@@ -87,7 +87,7 @@ override func viewDidAppear(_ animated: Bool) {
 ```
 
 En algunos casos la pantalla puede tomar diferentes valores para el marcaje en Firebase dependiendo de varios factores que no puede ser configurados en el fichero *FirebaseScreens.plist*. Para estos casos se puede sobrescribir el método `firebaseScreenName() -> String?` disponible en las clases `UIViewController` y `UIView` para indicar el nombre que se debe marcar en Firebase:
-```java
+```swift
 override func firebaseScreenName() -> String? {
     return "TestView"
 }
@@ -98,14 +98,14 @@ En el caso que el nombre no exista en el fichero *FirebaseScreens.plist* y no so
 ### Otros ejemplos de configuración
 
 - Cargar la configuración del fichero *GoogleService-Info.plist*
-    ```java
+    ```swift
     var options = SDOSFirebase.options()
     ```
-    ```java
+    ```swift
     var options = SDOSFirebase.options(environment: SDOSEnvironment.environmentKey)
     ```
 - Cargar la configuración del fichero *Configuration.plist* y la asociación de pantallas del fichero *Screens.plist*
-    ```java
+    ```swift
     SDOSFirebase.options(fileName: "Configuration", screensPlist: "Screens")
     ```
 
