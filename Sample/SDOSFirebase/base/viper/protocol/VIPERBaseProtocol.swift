@@ -24,7 +24,7 @@ protocol VIPERBaseDataStoreActions: GenericRepositoryActions {
 }
 
 /// Protocolo base para los wireframe que implementan VIPER
-protocol VIPERBaseWirwframeActions: GenericWirwframeActions {
+protocol VIPERBaseWirwframeActions: GenericWireframeActions {
     
 }
 
