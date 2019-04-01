@@ -14,7 +14,6 @@
 # SDOSFirebase
 
 - Enlace confluence: https://kc.sdos.es/x/jAPLAQ
-- Documentación: https://svrgitpub.sdos.es/iOS/SDOSEnvironment/tree/master/docs/docs/index.html
 
 ## Introducción
 
