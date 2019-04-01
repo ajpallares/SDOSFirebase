@@ -113,4 +113,4 @@ En el caso que el nombre no exista en el fichero *FirebaseScreens.plist* y no so
 * [Firebase/Core](Firebase/Core) - 5.x
 
 ## Referencias
-* https://svrgitpub.sdos.es/iOS/SDOSEnvironment
+* https://svrgitpub.sdos.es/iOS/SDOSFirebase
