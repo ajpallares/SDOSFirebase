@@ -96,20 +96,31 @@ En el caso que el nombre no exista en el fichero *FirebaseScreens.plist* y no so
 
 ### Otros ejemplos de configuración
 
-- Cargar la configuración del fichero *GoogleService-Info.plist*
+- Cargar la configuración de Firebase del fichero *GoogleService-Info.plist* (2 opciones válidas)
+    
+    Opción 1:
     ```js
     var options = SDOSFirebase.options()
     ```
+    Opción 2:
     ```js
-    var options = SDOSFirebase.options(environment: SDOSEnvironment.environmentKey)
+    var options = SDOSFirebase.options(filename: "GoogleService-Info")
     ```
-- Cargar la configuración del fichero *Configuration.plist* y la asociación de pantallas del fichero *Screens.plist*
+- Cargar la configuración de Firebase del fichero *GoogleService-Info-Development.plist*
+    ```js
+    var options = SDOSFirebase.options(environment: "Development")
+    ```
+- Cargar la configuración de Firebase del fichero *Configuration.plist* y la asociación de pantallas del fichero *Screens.plist*
     ```js
     SDOSFirebase.options(fileName: "Configuration", screensPlist: "Screens")
     ```
+- Cargar la configuración de Firebase del fichero *Configuration-Development.plist* y la asociación de pantallas del fichero *Screens.plist*
+    ```js
+    SDOSFirebase.options(environment: "Development", fileName: "Configuration", screensPlist: "Screens")
+    ```
 
 ## Dependencias
-* [Firebase/Core](Firebase/Core) - 5.x
+* [Firebase/Core](https://cocoapods.org/pods/Firebase) - 5.x
 
 ## Referencias
 * https://svrgitpub.sdos.es/iOS/SDOSFirebase
