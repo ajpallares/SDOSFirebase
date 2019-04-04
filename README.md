@@ -14,6 +14,7 @@
 # SDOSFirebase
 
 - Enlace confluence: https://kc.sdos.es/x/jAPLAQ
+- Changelog: https://svrgitpub.sdos.es/iOS/SDOSFirebase/blob/master/CHANGELOG.md
 
 ## Introducción
 
@@ -28,7 +29,7 @@ La librería se encarga de leer un fichero .plist con la asociación de los View
 Usaremos [CocoaPods](https://cocoapods.org). Hay que añadir la dependencia al `Podfile`:
 
 ```ruby
-pod 'SDOSFirebase', '~>1.0.0' 
+pod 'SDOSFirebase', '~>1.0.1' 
 ```
 
 ## Cómo se usa
