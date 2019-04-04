@@ -17,7 +17,7 @@
 
 ## Introducción
 
-SDOSFirebase implementa las funcionalidades necesarias para el marcado de pantallas en la plataforma Firebase. La librería se encarga de recuperar la configuración del fichero .plist que proporciona Google y posteriormente la aplica. Está configuración se puede modificar y no es obligatoria hacerla con la librería, pero **sí es obligatorio aplicar la configuración de Firebase con está librería**. Si no se aplica la configuración con la librería, ésta no funcionará.
+SDOSFirebase implementa las funcionalidades necesarias para el marcado de pantallas en la plataforma Firebase. La librería se encarga de recuperar la configuración del fichero .plist que proporciona Google y posteriormente la aplica. En caso de que sea necesaria alguna configuración adicional de Firebase la carga del fichero .plist se puede hacer sin la librería, pero **sí es obligatorio aplicar la configuración de Firebase con esta librería**. Si no se aplica la configuración con la librería, ésta no funcionará.
 
 La librería se encarga de leer un fichero .plist con la asociación de los ViewControllers y el nombre que deben tener en Firebase y los aplica al llamarase al método viewDidAppear. Está implementación se realiza en un controlador base del que deberán heredar todas las pantallas.
 
@@ -51,7 +51,7 @@ La librería está planteada para usarse conjuntamente con los entornos configur
     </plist>
     ```
 
-*Estos nombres pueden variar y habrá que realizar la configuración correcta durante la implementación
+> Los nombres de los ficheros plist pueden modificarse, en cuyo caso la librería se deberá inicializar como se muestra en los ejemplos de configuración
 
 ### Implementación
 
