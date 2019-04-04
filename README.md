@@ -14,11 +14,11 @@
 # SDOSFirebase
 
 - Enlace confluence: https://kc.sdos.es/x/jAPLAQ
-- Documentación: https://svrgitpub.sdos.es/iOS/SDOSEnvironment/tree/master/docs/docs/index.html
+- Changelog: https://svrgitpub.sdos.es/iOS/SDOSFirebase/blob/master/CHANGELOG.md
 
 ## Introducción
 
-SDOSFirebase implementa las funcionalidades necesarias para el marcado de pantallas en la plataforma Firebase. La librería se encarga de recuperar la configuración del fichero .plist que proporciona Google y posteriormente la aplica. Está configuración se puede modificar y no es obligatoria hacerla con la librería, pero **sí es obligatorio aplicar la configuración de Firebase con está librería**. Si no se aplica la configuración con la librería, ésta no funcionará.
+SDOSFirebase implementa las funcionalidades necesarias para el marcado de pantallas en la plataforma Firebase. La librería se encarga de recuperar la configuración del fichero .plist que proporciona Google y posteriormente la aplica. En caso de que sea necesaria alguna configuración adicional de Firebase la carga del fichero .plist se puede hacer sin la librería, pero **sí es obligatorio aplicar la configuración de Firebase con esta librería**. Si no se aplica la configuración con la librería, ésta no funcionará.
 
 La librería se encarga de leer un fichero .plist con la asociación de los ViewControllers y el nombre que deben tener en Firebase y los aplica al llamarase al método viewDidAppear. Está implementación se realiza en un controlador base del que deberán heredar todas las pantallas.
 
@@ -29,7 +29,7 @@ La librería se encarga de leer un fichero .plist con la asociación de los View
 Usaremos [CocoaPods](https://cocoapods.org). Hay que añadir la dependencia al `Podfile`:
 
 ```ruby
-pod 'SDOSFirebase', '~>1.0.0' 
+pod 'SDOSFirebase', '~>1.0.1' 
 ```
 
 ## Cómo se usa
@@ -52,7 +52,7 @@ La librería está planteada para usarse conjuntamente con los entornos configur
     </plist>
     ```
 
-*Estos nombres pueden variar y habrá que realizar la configuración correcta durante la implementación
+> Los nombres de los ficheros plist pueden modificarse, en cuyo caso la librería se deberá inicializar como se muestra en los ejemplos de configuración
 
 ### Implementación
 
@@ -124,4 +124,4 @@ En el caso que el nombre no exista en el fichero *FirebaseScreens.plist* y no so
 * [Firebase/Core](https://cocoapods.org/pods/Firebase) - 5.x
 
 ## Referencias
-* https://svrgitpub.sdos.es/iOS/SDOSEnvironment
+* https://svrgitpub.sdos.es/iOS/SDOSFirebase
