@@ -1,4 +1,8 @@
-## [1.0.0 Documentación](https://svrgitpub.sdos.es/iOS/SDOSFirebase/tree/v0.9.1)
+## [1.0.1 Documentación](https://svrgitpub.sdos.es/iOS/SDOSFirebase/tree/v1.0.1)
+
+- Actualizada la documentación
+
+## [1.0.0 Documentación](https://svrgitpub.sdos.es/iOS/SDOSFirebase/tree/v1.0.0)
 
 - Se ha añadido la documentación
 
