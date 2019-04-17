@@ -65,9 +65,10 @@ public class SDOSFirebase {
         guard let firebasePlist = bundle.path(forResource: fileName, ofType: fileExtension.rawValue),
             let firebaseOptions = FirebaseOptions(contentsOfFile: firebasePlist)
             else {
-                print("[\(self)] - No se ha podido cargar la configuración de Firebase. Comprueba que el fichero \"\(fileName).\(fileExtension.rawValue)\" existe")
+                print("[\(self)] - No se ha podido recuperar la configuración de Firebase. Comprueba que el fichero \"\(fileName).\(fileExtension.rawValue)\" existe")
                 return nil
         }
+        print("[\(self)] - Cargada la configuración de Firebase del fichero \"\(fileName).\(fileExtension.rawValue)\"")
         return firebaseOptions
     }
     

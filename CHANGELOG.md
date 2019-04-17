@@ -1,3 +1,7 @@
+## [1.0.2 Mejoras en el log](https://svrgitpub.sdos.es/iOS/SDOSFirebase/tree/v1.0.2)
+
+- Mejoras en el log al cargar el fichero de configuración
+
 ## [1.0.1 Documentación](https://svrgitpub.sdos.es/iOS/SDOSFirebase/tree/v1.0.1)
 
 - Actualizada la documentación

@@ -37,7 +37,7 @@
 		299FF623220C4EE600FB3D4C /* VIPERBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPERBaseProtocol.swift; sourceTree = "<group>"; };
 		29AC7B68224A196100F4CA84 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		29AC7B69224A196100F4CA84 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
-		29AC7B6A224A196100F4CA84 /* SDOSFirebase.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SDOSFirebase.podspec; path = ../../SDOSFirebase.podspec; sourceTree = "<group>"; };
+		29AC7B6A224A196100F4CA84 /* SDOSFirebase.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SDOSFirebase.podspec; path = ../../SDOSFirebase.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		29AC7B6B224A1AE800F4CA84 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
 		29AC7B6C224A1AE800F4CA84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29AC7B6F224A2B7800F4CA84 /* FirebaseScreens.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FirebaseScreens.plist; sourceTree = "<group>"; };
