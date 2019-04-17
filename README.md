@@ -29,7 +29,7 @@ La librería se encarga de leer un fichero .plist con la asociación de los View
 Usaremos [CocoaPods](https://cocoapods.org). Hay que añadir la dependencia al `Podfile`:
 
 ```ruby
-pod 'SDOSFirebase', '~>1.0.1' 
+pod 'SDOSFirebase', '~>1.0.2' 
 ```
 
 ## Cómo se usa
