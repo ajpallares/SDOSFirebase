@@ -5,9 +5,9 @@ Pod::Spec.new do |spec|
   spec.authors      = 'SDOS'
   spec.version      = @version
   spec.license      = { :type => 'MIT' }
-  spec.homepage     = 'https://svrgitpub.sdos.es/iOS/SDOSFirebase'
+  spec.homepage     = 'https://github.com/SDOSLabs/SDOSFirebase'
   spec.summary      = 'Librería para integrar las analíticas de Firebase'
-  spec.source       = { :git => "https://svrgitpub.sdos.es/iOS/SDOSFirebase.git", :tag => "v#{spec.version}" }
+  spec.source       = { :git => "https://github.com/SDOSLabs/SDOSFirebase.git", :tag => "v#{spec.version}" }
   spec.framework    = ['Foundation', 'UIKit']
   spec.requires_arc = true
 

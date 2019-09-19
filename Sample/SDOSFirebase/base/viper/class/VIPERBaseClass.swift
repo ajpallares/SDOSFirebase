@@ -5,27 +5,27 @@
 //
 
 import Foundation
-import SDOSVIPER
+import UIKit
 
-@objc class VIPERBaseDataStore: VIPERGenericObject {
+@objc class VIPERBaseDataStore: NSObject {
     
 }
 
-@objc class VIPERBaseInteractor : VIPERGenericObject {
+@objc class VIPERBaseInteractor : NSObject {
     
 }
 
-@objc class VIPERBasePresenter : VIPERGenericObject {
+@objc class VIPERBasePresenter : NSObject {
     
 }
 
-@objc class VIPERBaseViewController : VIPERGenericViewController {
+@objc class VIPERBaseViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setFirebaseScreenName(name: firebaseScreenName())
     }
 }
 
-@objc class VIPERBaseWireframe: VIPERGenericObject {
+@objc class VIPERBaseWireframe: NSObject {
     
 }
