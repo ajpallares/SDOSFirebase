@@ -14,7 +14,7 @@
 # SDOSFirebase
 
 - Enlace confluence: https://kc.sdos.es/x/jAPLAQ
-- Changelog: https://svrgitpub.sdos.es/iOS/SDOSFirebase/blob/master/CHANGELOG.md
+- Changelog: https://github.com/SDOSLabs/SDOSFirebase/blob/master/CHANGELOG.md
 
 ## Introducción
 
@@ -124,4 +124,4 @@ En el caso que el nombre no exista en el fichero *FirebaseScreens.plist* y no so
 * [Firebase/Core](https://cocoapods.org/pods/Firebase) - 5.x
 
 ## Referencias
-* https://svrgitpub.sdos.es/iOS/SDOSFirebase
+* https://github.com/SDOSLabs/SDOSFirebase

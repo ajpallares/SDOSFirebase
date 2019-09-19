@@ -5,8 +5,8 @@ clean: true
 author: SDOS
 author_url: https://sdos.es
 module: SDOSEnvironment
-github_url: https://svrgitpub.sdos.es/iOS/SDOSFirebase
-github_file_prefix: https://svrgitpub.sdos.es/iOS/SDOSFirebase/tree/master
+github_url: https://github.com/SDOSLabs/SDOSFirebase
+github_file_prefix: https://github.com/SDOSLabs/SDOSFirebase/tree/master
 skip_undocumented: true
 xcodebuild_arguments: [-workspace, SDOSFirebaseSample.xcworkspace, -scheme, SDOSFirebase]
 swift_version: 5.0.0

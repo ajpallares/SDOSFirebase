@@ -5,30 +5,29 @@
 //
 
 import Foundation
-import SDOSVIPER
 
 
 /// Protocolo base para los presenter que implementan VIPER
-protocol VIPERBasePresenterActions: GenericPresenterActions {
+protocol VIPERBasePresenterActions {
     
 }
 
 /// Protocolo base para los interactor que implementan VIPER
-protocol VIPERBaseInteractorActions: GenericInteractorActions {
+protocol VIPERBaseInteractorActions {
     
 }
 
 /// Protocolo base para los datastore que implementan VIPER
-protocol VIPERBaseDataStoreActions: GenericRepositoryActions {
+protocol VIPERBaseDataStoreActions {
     
 }
 
 /// Protocolo base para los wireframe que implementan VIPER
-protocol VIPERBaseWirwframeActions: GenericWireframeActions {
+protocol VIPERBaseWirwframeActions {
     
 }
 
 /// Protocolo base para los ViewControllers que implementan VIPER
-protocol VIPERBaseViewActions: GenericViewActions {
+protocol VIPERBaseViewActions {
     
 }
