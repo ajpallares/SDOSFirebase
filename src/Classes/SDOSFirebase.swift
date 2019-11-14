@@ -90,14 +90,63 @@ public class SDOSFirebase {
     }
     
     
-    /// Setea el nombre de una pantalla para la clase indicada en Firebase
+    /// Setea el nombre de una pantalla para la instancia indicada en Firebase. El nombre de la pantalla será uno de los siguientes (en este orden):
+    ///     * La implementación del método firebaseScreenName
+    ///     * El nombre que la clase tiene asociado en el fichero .plist (Por defecto "FirebaseScreens.plist")
+    ///     * El nombre de la clase
+    ///
+    /// - Parameters:
+    ///   - forInstance: Instancia de la clase a la que setear el nombre
+    public static func setScreenName(forInstance screenInstance: SDOSFirebaseScreen) {
+        setScreenAnalytic(name: getScreenName(forInstance: screenInstance), screenClassName: String(describing: type(of: screenInstance)))
+    }
+    
+    /// Setea el nombre de una pantalla para la clase indicada en Firebase. El nombre de la pantalla será uno de los siguientes (en este orden):
+    ///     * El String indicado en el parámetro "name"
+    ///     * El nombre que la clase tiene asociado en el fichero .plist (Por defecto "FirebaseScreens.plist")
+    ///     * El nombre de la clase
     ///
     /// - Parameters:
     ///   - name: Nombre de la pantalla a setear. Si viene nulo pondrá el nombre de la clase
-    ///   - screenClass: Clase a la que setear el nombre
-    public static func setScreenName(_ name: String?, forClass screenClass: AnyClass) {
+    ///   - forClass: Clase a la que setear el nombre
+    public static func setScreenName(_ name: String?, forClass screenClass: SDOSFirebaseScreen.Type) {
+        setScreenAnalytic(name: getScreenName(name, forClass: screenClass), screenClassName: String(describing: screenClass))
+    }
+    
+    /// Obtiene el nombre de Firebase de una pantalla para la instancia indicada. El nombre de la pantalla será uno de los siguientes (en este orden):
+    ///     * La implementación del método firebaseScreenName
+    ///     * El nombre que la clase tiene asociado en el fichero .plist (Por defecto "FirebaseScreens.plist")
+    ///     * El nombre de la clase
+    ///
+    /// - Parameters:
+    ///   - forInstance: Instancia de la clase de la que obtener el nombre
+    /// - Returns: Nombre de una pantalla para la clase indicada en Firebase
+    public static func getScreenName(forInstance screenInstance: SDOSFirebaseScreen) -> String? {
         guard configurationLoaded else {
-            return
+            return nil
+        }
+        
+        var screenName = screenInstance.firebaseScreenName?()
+        if screenName == nil {
+            screenName = getScreenName(nil, forClass: type(of: screenInstance))
+        }
+        return screenName
+    }
+    
+    /// Obtiene el nombre de Firebase de una pantalla para la clase indicada. El nombre de la pantalla será uno de los siguientes (en este orden):
+    ///     - El nombre que la clase tiene asociado en el fichero .plist (Por defecto "FirebaseScreens.plist")
+    ///     - El nombre de la clase
+    ///
+    /// - Parameters:
+    ///   - forClass: Clase a la que obtener el nombre
+    /// - Returns: Nombre de una pantalla para la clase indicada en Firebase
+    public static func getScreenName(forClass screenClass: SDOSFirebaseScreen.Type) -> String? {
+        return getScreenName(nil, forClass: screenClass)
+    }
+    
+    private static func getScreenName(_ name: String?, forClass screenClass: SDOSFirebaseScreen.Type) -> String? {
+        guard configurationLoaded else {
+            return nil
         }
         
         var screenName = String(describing: screenClass)
@@ -106,40 +155,21 @@ public class SDOSFirebase {
         } else if let screensDictionary = screensDictionary, let name = screensDictionary[String(describing: screenClass)] as? String {
             screenName = name
         }
-        Analytics.setScreenName(screenName, screenClass: String(describing: screenClass))
+        return screenName
+    }
+    
+    private static func setScreenAnalytic(name: String?, screenClassName: String?) {
+        Analytics.setScreenName(name, screenClass: screenClassName)
     }
 }
 
-extension UIView {
-    /// Setea el nombre de la vista en el framework de analíticas
-    ///
-    /// - Parameters:
-    ///   - name: Nombre de la pantalla. Si es nulo lo buscará en el fichero plist a partir de la clase
-    @objc open func setFirebaseScreenName(name: String? = nil) {
-        SDOSFirebase.setScreenName(name, forClass: type(of: self))
-    }
-    
-    /// Nombre de la pantalla para marcar en Firebase. Si devuelve nil seteara el nombre en el .plist si existe o el nombre del controlador si no existe.
+@objc public protocol SDOSFirebaseScreen {
+    /// Sobrescribe el nombre de la pantalla para marcar en Firebase
     ///
     /// - Returns: Nombre para marcar en Firebase
-    @objc open func firebaseScreenName() -> String? {
-        return nil
-    }
+    @objc optional func firebaseScreenName() -> String?
 }
 
-extension UIViewController {
-    /// Setea el nombre de la vista en el framework de analíticas. Normalmente se llamará en el método viewDidAppear(animated: Bool)
-    ///
-    /// - Parameters:
-    ///   - name: Nombre de la pantalla. Si es nulo lo buscará en el fichero plist a partir de la clase
-    @objc open func setFirebaseScreenName(name: String? = nil) {
-        SDOSFirebase.setScreenName(name, forClass: type(of: self))
-    }
-    
-    /// Nombre de la pantalla para marcar en Firebase. Si devuelve nil seteara el nombre en el .plist si existe o el nombre del controlador si no existe
-    ///
-    /// - Returns: Nombre para marcar en Firebase
-    @objc open func firebaseScreenName() -> String? {
-        return nil
-    }
-}
+extension UIView: SDOSFirebaseScreen { }
+
+extension UIViewController: SDOSFirebaseScreen { }

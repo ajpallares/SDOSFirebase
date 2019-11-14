@@ -1,3 +1,9 @@
+## [HEAD]
+
+- Cambios en la librería para corregir un error de instancia única cuando se incluia en un Framework.
+- Se ha eliminado la implementación de las extensiones de `UIView` y `UIViewController` para setear las pantallas en Firebase. Ahora se debe invocar a la propia librería de SDOSFirebase para ello
+- Se han añadido métodos para recuperar el nombre de la pantalla en Firebase en base a las configuraciones del proyecto
+
 ## [1.0.2 Mejoras en el log](https://github.com/SDOSLabs/SDOSFirebase/tree/v1.0.2)
 
 - Mejoras en el log al cargar el fichero de configuración

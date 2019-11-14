@@ -6,6 +6,7 @@
 
 import Foundation
 import UIKit
+import SDOSFirebase
 
 @objc class VIPERBaseDataStore: NSObject {
     
@@ -22,7 +23,8 @@ import UIKit
 @objc class VIPERBaseViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setFirebaseScreenName(name: firebaseScreenName())
+        SDOSFirebase.setScreenName(forInstance: self)
+//        SDOSFirebase.setScreenName(firebaseScreenName(), forClass: type(of: self))
     }
 }
 
