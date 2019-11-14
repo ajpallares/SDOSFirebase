@@ -44,8 +44,8 @@ class DocumentationViewController: VIPERBaseViewController {
         return barBtnReload
     }()
 
-    override func firebaseScreenName() -> String? {
-        return "correcto"
+    func firebaseScreenName() -> String? {
+        return "Nueva pantalla"
     }
     
     override func viewDidLoad() {

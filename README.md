@@ -1,20 +1,20 @@
 - [SDOSFirebase](#sdosfirebase)
-  - [Introducción](#introducci%C3%B3n)
-  - [Instalación](#instalaci%C3%B3n)
+  - [Introducción](#introducci%c3%b3n)
+  - [Instalación](#instalaci%c3%b3n)
     - [Cocoapods](#cocoapods)
-  - [Cómo se usa](#c%C3%B3mo-se-usa)
-    - [Configuración del proyecto](#configuraci%C3%B3n-del-proyecto)
-    - [Implementación](#implementaci%C3%B3n)
-      - [Configuración inicial](#configuraci%C3%B3n-inicial)
+  - [Cómo se usa](#c%c3%b3mo-se-usa)
+    - [Configuración del proyecto](#configuraci%c3%b3n-del-proyecto)
+    - [Implementación](#implementaci%c3%b3n)
+      - [Configuración inicial](#configuraci%c3%b3n-inicial)
       - [Uso](#uso)
-    - [Otros ejemplos de configuración](#otros-ejemplos-de-configuraci%C3%B3n)
+    - [Otros ejemplos de configuración](#otros-ejemplos-de-configuraci%c3%b3n)
   - [Dependencias](#dependencias)
   - [Referencias](#referencias)
 
 # SDOSFirebase
 
 - Enlace confluence: https://kc.sdos.es/x/jAPLAQ
-- Changelog: https://svrgitpub.sdos.es/iOS/SDOSFirebase/blob/master/CHANGELOG.md
+- Changelog: https://github.com/SDOSLabs/SDOSFirebase/blob/master/CHANGELOG.md
 
 ## Introducción
 
@@ -29,7 +29,7 @@ La librería se encarga de leer un fichero .plist con la asociación de los View
 Usaremos [CocoaPods](https://cocoapods.org). Hay que añadir la dependencia al `Podfile`:
 
 ```ruby
-pod 'SDOSFirebase', '~>1.0.2' 
+pod 'SDOSFirebase', '~>2.0.0' 
 ```
 
 ## Cómo se usa
@@ -73,20 +73,36 @@ La configuración de Firebase se puede cargar de otra forma o recibir modificaci
 
 #### Uso
 
-Para realizar el marcaje de las pantallas hay que implementar el siguiente código durante la presentación de la vista:
+Para que una pantalla pueda ser marcada en firebase la clase debe implementar el protocolo `SDOSFirebaseScreen`. Este protocolo implementa un método para definir el nombre de la pantalla
 ```js
-setFirebaseScreenName(name: firebaseScreenName())
+@objc optional func firebaseScreenName() -> String?
+```
+
+Por defecto la librería crea unas extensiones para que las clases `UIViewController` y `UIView` implementen dicho protocolo
+
+
+Para realizar el marcaje de las pantallas hay que implementar el siguiente código durante la presentación de la vista:
+
+Si tenemos la instancia:
+```js
+SDOSFirebase.setScreenName(forInstance: self)
+```
+
+Si tenemos la clase:
+```js
+SDOSFirebase.setScreenName(nil, forClass: type(of: self)) 
+//El primer parámetro es el nombre para marcar en Firebase que puede ser opcional
 ```
 
 Un ejemplo sería llamar al método en el viewDidAppear:
 ```js
 override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    setFirebaseScreenName(name: firebaseScreenName())
+    SDOSFirebase.setScreenName(forInstance: self)
 }
 ```
 
-En algunos casos la pantalla puede tomar diferentes valores para el marcaje en Firebase dependiendo de varios factores que no puede ser configurados en el fichero *FirebaseScreens.plist*. Para estos casos se puede sobrescribir el método `firebaseScreenName() -> String?` disponible en las clases `UIViewController` y `UIView` para indicar el nombre que se debe marcar en Firebase:
+En algunos casos la pantalla puede tomar diferentes valores para el marcaje en Firebase dependiendo de varios factores que no puede ser configurados en el fichero *FirebaseScreens.plist*. Para estos casos se puede sobrescribir el método `firebaseScreenName() -> String?` que define el protocolo `SDOSFirebaseScreen` (lo implementan por defecto las clases `UIViewController` y `UIView`) para indicar el nombre que se debe marcar en Firebase:
 ```js
 override func firebaseScreenName() -> String? {
     return "TestView"
@@ -94,6 +110,18 @@ override func firebaseScreenName() -> String? {
 ```
 
 En el caso que el nombre no exista en el fichero *FirebaseScreens.plist* y no sobrescriba el método `firebaseScreenName() -> String?`, la pantalla se marcará con el nombre del propio controlador
+
+También se puede consultar el nombre que la pantalla tendrá en Firebase a través del siguiente método:
+
+Para la instancia:
+```js
+let screenName = SDOSFirebase.getScreenName(forInstance: self)
+```
+
+Para la clase:
+```js
+let screenName = SDOSFirebase.getScreenName(forClass: type(of: self))
+```
 
 ### Otros ejemplos de configuración
 
@@ -124,4 +152,4 @@ En el caso que el nombre no exista en el fichero *FirebaseScreens.plist* y no so
 * [Firebase/Core](https://cocoapods.org/pods/Firebase) - 5.x
 
 ## Referencias
-* https://svrgitpub.sdos.es/iOS/SDOSFirebase
+* https://github.com/SDOSLabs/SDOSFirebase
