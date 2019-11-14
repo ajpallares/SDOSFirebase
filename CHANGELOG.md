@@ -1,4 +1,4 @@
-## [HEAD]
+## [2.0.0 Arreglo al incluir la dependencia en un Framework](https://github.com/SDOSLabs/SDOSFirebase/tree/v2.0.0)
 
 - Cambios en la librería para corregir un error de instancia única cuando se incluia en un Framework.
 - Se ha eliminado la implementación de las extensiones de `UIView` y `UIViewController` para setear las pantallas en Firebase. Ahora se debe invocar a la propia librería de SDOSFirebase para ello
